@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jailson Martins | Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:    #0a1628;
+      --azul2:   #112240;
+      --acento:  #00d4ff;
+      --acento2: #0099bb;
+      --texto:   #ccd6f6;
+      --cinza:   #8892b0;
+      --branco:  #e6f1ff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--azul);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    /* ── HEADER / NAV ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+    }
+    nav {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2rem;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.3rem;
+      color: var(--acento);
+      letter-spacing: -0.5px;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--cinza); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--acento); }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 2rem 4rem;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(0,212,255,0.07) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      color: var(--acento);
+      padding: 0.35rem 1rem; border-radius: 2rem;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800; color: var(--branco);
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .hero-name span { color: var(--acento); }
+    .hero-sub {
+      color: var(--cinza); font-size: 1rem;
+      max-width: 420px; margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      background: transparent;
+      border: 1.5px solid var(--acento);
+      color: var(--acento);
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover { background: rgba(0,212,255,0.12); }
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .avatar-ring {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,212,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0,212,255,0.15);
+    }
+    .avatar-inner {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul2), #1a3a5c);
+      display: flex; align-items: center; justify-content: center;
+      animation: spin 20s linear reverse infinite;
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem; font-weight: 800;
+      color: var(--acento);
+      border: 2px solid rgba(0,212,255,0.2);
+    }
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--acento); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; color: var(--branco);
+      margin-bottom: 2.5rem;
+    }
+    /* ── SOBRE MIM ── */
+    #sobre { background: var(--azul2); }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .sobre-texto p {
+      color: var(--cinza); margin-bottom: 1.1rem; font-size: 0.97rem;
+    }
+    .skills-list {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem;
+    }
+    .skill-tag {
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.2);
+      color: var(--acento);
+      padding: 0.3rem 0.85rem; border-radius: 4px;
+      font-size: 0.82rem; font-weight: 500;
+    }
+    .sobre-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .info-card {
+      background: rgba(0,212,255,0.04);
+      border: 1px solid rgba(0,212,255,0.12);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .info-card .icon {
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      background: rgba(0,212,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .info-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem; color: var(--acento); margin-bottom: 0.15rem;
+    }
+    .info-card p { color: var(--cinza); font-size: 0.82rem; }
+    /* ── PROJETOS ── */
+    #projetos { background: var(--azul); }
+    .projetos-aviso {
+      background: rgba(0,212,255,0.06);
+      border: 1px solid rgba(0,212,255,0.18);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      color: var(--cinza);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .projetos-aviso .aviso-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+    .projetos-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+    }
+    .projeto-card {
+      background: var(--azul2);
+      border: 1px solid rgba(0,212,255,0.1);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .projeto-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      transform: translateY(-4px);
+    }
+    .projeto-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .projeto-icon { font-size: 1.8rem; }
+    .projeto-status {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.25rem 0.65rem; border-radius: 3px;
+      background: rgba(0,212,255,0.1); color: var(--acento);
+    }
+    .projeto-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; color: var(--branco);
+      margin-bottom: 0.5rem;
+    }
+    .projeto-card p {
+      color: var(--cinza); font-size: 0.83rem; line-height: 1.55;
+    }
+    .projeto-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+    }
+    .projeto-tag {
+      font-size: 0.72rem;
+      border: 1px solid rgba(0,212,255,0.2);
+      color: var(--cinza);
+      padding: 0.2rem 0.55rem; border-radius: 3px;
+    }
+    /* ── FOOTER ── */
+    footer {
+      background: var(--azul2);
+      border-top: 1px solid rgba(0,212,255,0.1);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    footer p { color: var(--cinza); font-size: 0.85rem; }
+    footer span { color: var(--acento); }
+
+    /* ── RESPONSIVIDADE ── */
+    @media (max-width: 768px) {
+      .hero-inner, .sobre-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-visual { display: none; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.82rem; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- CABEÇALHO -->
+  <header>
+    <nav>
+      <div class="logo">JM</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">Empresário & Estudante de T.I.</div>
+        <h1 class="hero-name">Jailson de<br>Sousa <span>Martins</span></h1>
+        <p class="hero-sub">
+          Empresário no ramo de Provedor de Internet e graduando em
+          Sistemas para Internet — unindo gestão empresarial e tecnologia.
+        </p>
+        <a href="#sobre" class="btn">Conheça minha trajetória</a>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-ring">
+          <div class="avatar-inner">JM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SOBRE MIM -->
+  <section id="sobre">
+    <div class="section-inner">
+      <p class="section-label">Quem sou eu</p>
+      <h2 class="section-title">Sobre Mim</h2>
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <p>
+            Sou Jailson de Sousa Martins, empresário atuante no setor de telecomunicações,
+            à frente de um Provedor de Internet. Com anos de experiência na área, já ajudei
+            muitas famílias e empresas a se conectarem ao mundo digital.
+          </p>
+          <p>
+            Atualmente, estou cursando <strong style="color:var(--branco)">Sistemas para Internet</strong>,
+            buscando aprofundar meu conhecimento técnico em desenvolvimento web, redes e
+            gestão de sistemas — habilidades que complementam minha atuação no mercado.
+          </p>
+          <p>
+            Acredito que a tecnologia é o principal motor de transformação social e econômica.
+            Minha missão é levar conectividade de qualidade às pessoas e, ao mesmo tempo,
+            crescer continuamente como profissional de T.I.
+          </p>
+          <div class="skills-list">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Redes</span>
+            <span class="skill-tag">Gestão Empresarial</span>
+            <span class="skill-tag">Telecomunicações</span>
+          </div>
+        </div>
+        <div class="sobre-cards">
+          <div class="info-card">
+            <div class="icon">🌐</div>
+            <div>
+              <h4>Área de Atuação</h4>
+              <p>Provedor de Internet (ISP)</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">🎓</div>
+            <div>
+              <h4>Formação</h4>
+              <p>Graduando em Sistemas para Internet</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">📍</div>
+            <div>
+              <h4>Localização</h4>
+              <p>Brasil</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon">💼</div>
+            <div>
+              <h4>Perfil</h4>
+              <p>Empresário & Estudante de T.I.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="section-inner">
+      <p class="section-label">Portfólio</p>
+      <h2 class="section-title">Meus Projetos</h2>
+
+      <div class="projetos-aviso">
+        <span class="aviso-icon">ℹ️</span>
+        <div>
+          <strong style="color:var(--branco)">Em construção!</strong><br>
+          Estou iniciando minha jornada em desenvolvimento web durante a graduação.
+          Os projetos abaixo serão desenvolvidos e adicionados conforme avanço no curso.
+          Por enquanto, listo as iniciativas em andamento no âmbito empresarial e acadêmico.
+        </div>
+      </div>
+      <div class="projetos-grid" id="projetos-grid">
+        <!-- renderizado via JS -->
+      </div>
+    </div>
+  </section>
+  <!-- RODAPÉ -->
+  <footer>
+    <p>
+      Desenvolvido por <span>Jailson de Sousa Martins</span> &mdash;
+      Graduando em Sistemas para Internet &bull; &copy; 2025
+    </p>
+  </footer>
+  <script>
+    // Array de projetos / iniciativas
+    const projetos = [
+      {
+        icon: "📡",
+        titulo: "Provedor de Internet",
+        descricao: "Gestão e operação de provedor de acesso à internet, oferecendo conectividade com qualidade para clientes residenciais e empresariais.",
+        tags: ["Telecomunicações", "Redes", "Gestão"],
+        status: "Em operação"
+      },
+      {
+        icon: "📚",
+        titulo: "Graduação em Sistemas para Internet",
+        descricao: "Curso superior em andamento com foco em desenvolvimento web, programação, banco de dados e infraestrutura de redes.",
+        tags: ["HTML5", "CSS3", "JavaScript", "Redes"],
+        status: "Em curso"
+      },
+      {
+        icon: "💻",
+        titulo: "Este Portfólio",
+        descricao: "Primeiro projeto prático da graduação: portfólio pessoal desenvolvido com HTML5, CSS3 e JavaScript, aplicando conceitos de semântica e responsividade.",
+        tags: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
+        status: "Concluído"
+      }
+    ];
+    // Renderização dinâmica
+    const grid = document.getElementById('projetos-grid');
+    projetos.forEach(p => {
+      const card = document.createElement('div');
+      card.classList.add('projeto-card');
+      card.innerHTML = `
+        <div class="projeto-header">
+          <span class="projeto-icon">${p.icon}</span>
+          <span class="projeto-status">${p.status}</span>
+        </div>
+        <h3>${p.titulo}</h3>
+        <p>${p.descricao}</p>
+        <div class="projeto-tags">
+          ${p.tags.map(t => `<span class="projeto-tag">${t}</span>`).join('')}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
